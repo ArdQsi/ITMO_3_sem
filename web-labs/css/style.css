@@ -1,0 +1,111 @@
+body {
+    background-color: #ece6CD;
+}
+
+#main-grid {
+    width: 80%;
+    margin: auto;
+    border-spacing: 1em;
+    table-layout: fixed;
+}
+
+.center-aligned {
+    text-align: center;
+    background-color: #3a3f58;
+}
+
+#header {
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: medium;
+}
+
+
+.content {
+    vertical-align: top;
+}
+
+.content-top {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    background-color: #3a3f58;
+}
+
+#content-table {
+    width: 100%;
+    border: 2px solid black;
+    text-align: center;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.image {
+    padding-top: 20px;
+    text-align: center;
+}
+
+#input {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+
+.input-grid-name {
+    font-weight: bolder;
+    color: black;
+    width: 0%;
+    padding: 25px;
+}
+
+
+#x-textinput {
+    width: 90%;
+    height: 20px;
+}
+
+#r-textinput {
+    width: 90%;
+    height: 20px;
+}
+
+.table-content {
+    background-color: #f9ac67;
+    
+}
+
+.active {
+    background-color: #ee6a59;
+}
+
+.buttons {
+    margin-top: 3%;
+}
+
+.text-error {
+    border: 2px solid #ff0000;
+}
+
+.text-error::placeholder {
+    color: #ff0000;
+}
+
+.button {
+    height: 30px;
+    width: 70px;
+    color: #ffffff;
+    background-color: #f9ac67;
+    text-align: center;
+}
+
+.button:hover {
+    background-color: #ee6a59;
+}

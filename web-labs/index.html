@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang='rus'>
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Web_Lab_1
+    </title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</head>
+
+<body>
+    <table id="main-grid">
+        <tr>
+            <!-- header-->
+            <td class="center-aligned" colspan="2">
+                <span id="header">ФИО: Кравец Роман Денисович. Группа: P32091. Вариант: 1808 </span>
+            </td>
+        </tr>
+
+        <tr>
+            <!-- Graph-->
+            <td>
+                <span class="content" id="graph">
+                    <div class=content-top>
+                        <h2 class="title"> Graph </h2>
+                    </div>
+                    <div class="image">
+                        <img src="image/1.PNG">
+                    </div>
+                </span>
+            </td>
+
+            <!-- Values -->
+            <td class="content" id="values">
+                <div class="content-top">
+                    <h2 class="title">Values</h2>
+                </div>
+
+                <form id="form-input" action="" method="get">
+                    <table id="input">
+                        <!-- x value-->
+
+                        <tr>
+                            <td class="input-grid-name">
+                                <label for="x-textinput">X:</label>
+                            </td>
+                            <td class="input-grid-value">
+                                <input id="x-textinput" type="text" name="xval" maxlength="10" autocomplete="off"
+                                    placeholder="Number from -5 to 3">
+                            </td>
+                        </tr>
+
+                        <!-- y value -->
+                        <tr>
+                            <td class="input-grid-name">
+                                <label for=".y-button">Y:</label>
+                            </td>
+
+                            <td>
+                                <input class="y-button" type="button" name="yval" value="-2">
+                                <input class="y-button" type="button" name="yval" value="-1.5">
+                                <input class="y-button" type="button" name="yval" value="-1">
+                                <input class="y-button" type="button" name="yval" value="-0.5">
+                                <input class="y-button" type="button" id="y-button1" name="yval" value="0">
+                                <input class="y-button" type="button" name="yval" value="0.5">
+                                <input class="y-button" type="button" name="yval" value="1">
+                                <input class="y-button" type="button" name="yval" value="1.5">
+                                <input class="y-button" type="button" name="yval" value="2">
+                            </td>
+                        </tr>
+
+                        <!-- R value -->
+                        <tr>
+
+                            <td class="input-grid-name">
+                                <label for="r-textinput">R:</label>
+                            </td>
+                            <td class="input-grid-value">
+                                <input id="r-textinput" type="text" name="rval" maxlength="10" autocomplete="off"
+                                    placeholder="Number from 1 to 4">
+                            </td>
+
+                        </tr>
+
+                        <!-- Buttons  -->
+                        <tr>
+                            <td colspan="2">
+                                <div class="buttons">
+                                    <input class="button" type="submit" value="Submit">
+                                    <input class="button" type="reset" value="Reset">
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </td>
+        </tr>
+
+
+        <tr>
+            <!-- Table -->
+            <td class="content" id="table" colspan="2">
+                <div class="content-top">
+                    <h2 class="title"> Table </h2>
+                </div>
+
+                <div class="table-content">
+                    <table id="content-table">
+                        <tr class="table-header">
+                            <th class="coordinates-col">X</th>
+                            <th class="coordinates-col">Y</th>
+                            <th class="coordinates-col">R</th>
+                            <th class="time-col">Current time</th>
+                            <th class="time-col">Execution time</th>
+                            <th class="hit-col">Hit result</th>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+
+
+</html>
