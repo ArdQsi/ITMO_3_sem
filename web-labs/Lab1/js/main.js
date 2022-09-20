@@ -1,20 +1,23 @@
 jQuery('document').ready(function () {
+    $.ajax({
+        url: './php/main.php',
+        method: 'POST',
+        dataType: 'html',
+        success: (html) => {
+            $('#content-table').remove();
+            $('.table-content').append(html);
+        }
+    })
 
     function isNumber(n) {
-        return /^-?\d+$/.test(n);
-    }
-
-    function isNumeric(value) {
-        return /^\d+$/.test(value);
+        return !isNaN(parseFloat(n) && isFinite(n));
     }
 
     function validateX() {
         const xMin = -5;
         const xMax = 3;
-
-        var x = document.getElementById("x-textinput").value;
-
-        if (isNumber(x) && x >= xMin && x <= xMax) {
+        x = parseFloat(document.getElementById('x-textinput').value.replace(/,/, '.'));
+        if (x >= xMin && x <= xMax && isNumber(x)) {
             $('#x-textinput').removeClass("text-error");
             return true;
         } else {
@@ -23,34 +26,42 @@ jQuery('document').ready(function () {
         }
     }
 
-
-    // кнопки y:
-    let y;
     let flag;
-    $('.y-button').click(function (e) {
+    let y;
+    let button = document.querySelectorAll('#number [type="button"]');
+    const massiveY = ['-2', '-1.5', '-1', '-0.5', '0', '0.5', '1', '1.5', '2'];
+    for (var i = 0; i < button.length; i++) {
+        button[i].addEventListener('click', takeNumber, false);
+    }
+
+    function takeNumber() {
+        y = this.value;
         $('.y-button').removeClass("active");
         $(this).addClass("active");
-        y = e.target.value;
         flag = true;
-    });
+    }
 
     function validateY() {
         if (flag) {
-            return true;
+            $('.y-button').removeClass("text-error");
+            if (isNumber(y) && massiveY.includes(y)) {
+                return true;
+            } else {
+                return false;
+            }
         }
         else {
-            alert("Вы не выбрали значение 'Y'");
+            $('.y-button').addClass("text-error");
         }
     }
-
 
     function validateR() {
         const rMin = 1;
         const rMax = 4;
 
-        var r = document.getElementById("r-textinput").value;
+        r = parseFloat(document.getElementById('r-textinput').value.replace(/,/, '.'));
 
-        if (isNumeric(r) && r >= rMin && r <= rMax) {
+        if (isNumber(r) && r >= rMin && r <= rMax) {
             $('#r-textinput').removeClass("text-error");
             return true;
         } else {
@@ -63,29 +74,24 @@ jQuery('document').ready(function () {
         return validateX() & validateR() & validateY();
     }
 
+    document.getElementById("reset").onclick = function(e) {
+        $('.y-button').removeClass("active");
+        flag = false;
+      }
 
     $('#form-input').on('submit', function (event) {
         event.preventDefault();
         if (!validateAll()) return;
         $.ajax({
             url: './php/main.php',
-            method: 'get',
-            data: $(this).serialize() + "&yval=" + y,
-            dataType: "json",
-            success: function (data) {
-                if (data.validate) {
-                newRow = '<tr>';
-                newRow += '<td class="coordinates-col">' + data.xval + '</td>';
-                newRow += '<td class="coordinates-col">' + data.yval + '</td>';
-                newRow += '<td class="coordinates-col">' + data.rval + '</td>';
-                newRow += '<td class = "time-col">' + data.curtime + '</td>';
-                newRow += '<td class = "time-col">' + data.exectime + '</td>';
-                newRow += '<td class="hit-col">' + data.hitres + '</td>';
-                $('#content-table').append(newRow);
-                }
+            method: 'GET',
+            data: $(this).serialize() + "&yval=" + y + "&timeZone=" + new Date().getTimezoneOffset(),
+            dataType: "html",
+            success: (html) => {
+                $('#content-table').remove();
+                $('.table-content').append(html);
             }
         });
-
     });
 
 });

@@ -29,6 +29,14 @@ body {
     display: inline-block;
     width: 100%;
     text-align: center;
+    color: rebeccapurple;
+    background-color: #3a3f58;
+}
+
+.content-top { 
+    display: inline-block;
+    width: 100%;
+    text-align: center;
     color: #ffffff;
     background-color: #3a3f58;
 }
@@ -54,10 +62,8 @@ body {
 #input {
     width: 100%;
     text-align: center;
-    display: flex;
     justify-content: center;
 }
-
 
 .input-grid-name {
     font-weight: bolder;
@@ -68,13 +74,13 @@ body {
 
 
 #x-textinput {
-    width: 90%;
-    height: 20px;
+    width: 70%;
+    height: 10%;
 }
 
 #r-textinput {
-    width: 90%;
-    height: 20px;
+    width: 70%;
+    height: 10%;
 }
 
 .table-content {

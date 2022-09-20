@@ -49,7 +49,7 @@
                             </td>
                             <td class="input-grid-value">
                                 <input id="x-textinput" type="text" name="xval" maxlength="10" autocomplete="off"
-                                    placeholder="Number from -5 to 3">
+                                    placeholder="Number from -5 to 3" required>
                             </td>
                         </tr>
 
@@ -58,8 +58,8 @@
                             <td class="input-grid-name">
                                 <label for=".y-button">Y:</label>
                             </td>
-
-                            <td>
+                            
+                            <td id = "number">
                                 <input class="y-button" type="button" name="yval" value="-2">
                                 <input class="y-button" type="button" name="yval" value="-1.5">
                                 <input class="y-button" type="button" name="yval" value="-1">
@@ -80,7 +80,7 @@
                             </td>
                             <td class="input-grid-value">
                                 <input id="r-textinput" type="text" name="rval" maxlength="10" autocomplete="off"
-                                    placeholder="Number from 1 to 4">
+                                    placeholder="Number from 1 to 4" required>
                             </td>
 
                         </tr>
@@ -90,7 +90,7 @@
                             <td colspan="2">
                                 <div class="buttons">
                                     <input class="button" type="submit" value="Submit">
-                                    <input class="button" type="reset" value="Reset">
+                                    <input class="button" id ='reset' type="reset" value="Reset">
                                 </div>
                             </td>
                         </tr>
