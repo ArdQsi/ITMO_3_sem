@@ -1,0 +1,67 @@
+$(function() {
+    const X_VALUES = [-5, -4, -3, -2, -1, 0, 1, 2, 3];
+    const R_VALUES = [1, 2, 3, 4, 5];
+
+    function isNumber(n) {
+        return !isNaN(parseFloat(n) && isFinite(n));
+    }
+
+
+    function validateY() {
+        const yMin = -3;
+        const yMax = 3;
+        y = parseFloat(document.getElementById('.input_form_label_y').value.replace(/,/, '.'));
+        if (y >= yMin && y <= yMax && isNumber(y)) {
+            $('.input_form_label_y').removeClass("text-error");
+            return true;
+        } else {
+            $('.input_form_label_y').addClass("text-error");
+            return false;
+        }
+    }
+
+    let rval;
+    let flag;
+    let button = document.querySelectorAll('.number_r [type="button"]');
+
+    for (let i = 0; i < button.length; i++) {
+        button[i].addEventListener("click", takeNumber, false);
+    }
+
+
+    function takeNumber() {
+        rval = this.value;
+        $('.input_form_button_r').removeClass("active");
+        $(this).addClass("active");
+        flag = true;
+
+        console.log(rval);
+    }
+
+    function validateR() {
+        if (flag) {
+            $(".input_form_button_r").removeClass("text-error");
+            if (isNumber(r) && R_VALUES.includes(r)) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            $('.input_form_button_r').addClass("text-error");
+        }
+    }
+
+    function validateForm() {
+        return validateY() && validateR();
+    }
+
+    $('.input-form_button_submit').on('click', function (event) {
+            if (!validateForm()) {
+                event.preventDefault();
+            } else{
+                $('.input-form_hidden_r').val(rval);
+                $('.input-form_hidden_timezone').val(new Date().getTimezoneOffset());
+            }
+    });
+
+});
