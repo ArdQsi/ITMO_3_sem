@@ -1,21 +1,16 @@
-$(function() {
+$(function () {
     const X_VALUES = [-5, -4, -3, -2, -1, 0, 1, 2, 3];
     const R_VALUES = ['1', '2', '3', '4', '5'];
     const Y_MIN = -3;
     const Y_MAX = 3;
-    let canvas = $('.graph-canvas');
 
     function isNumber(n) {
         return !isNaN(parseFloat(n) && isFinite(n));
     }
 
     function validateY() {
-        const yMin = -3;
-        const yMax = 3;
-
-
         let y = parseFloat(document.getElementById('y-textinput').value.replace(/,/, '.'));
-        if (y >= yMin && y <= yMax && isNumber(y)) {
+        if (y >= Y_MIN && y <= Y_MAX && isNumber(y)) {
             $('.input_form_text_y').removeClass("text-error");
             return true;
         } else {
@@ -40,28 +35,37 @@ $(function() {
     }
 
     function validateR() {
-        console.log("a");
-        console.log(flag);
-        console.log(rval);
         if (flag) {
             $(".input_form_button_r").removeClass("text-error");
             if (isNumber(rval) && R_VALUES.includes(rval)) {
-                console.log("yes");
                 return true;
-
             } else {
-                console.log("no");
                 return false;
-
             }
         } else {
             $('.input_form_button_r').addClass("text-error");
-            console.log('err');
+        }
+    }
+
+    function validateX() {
+        let checkboxes = document.getElementsByClassName('x-checkbox');
+        var x = null;
+        for (var index = 0; index < checkboxes.length; index++) {
+            if (checkboxes[index].checked) {
+                x = checkboxes[index].value;
+            }
+        }
+        if (X_VALUES.includes(parseFloat(x))) {
+            $('.xbox-label').removeClass("text-error");
+            return true;
+        } else {
+            $('.xbox-label').addClass("text-error");
+            return false;
         }
     }
 
     function validateForm() {
-        return  validateR() && validateY();
+        return validateR() & validateY() & validateX();
     }
 
     $('.input-form_button_submit').on('click', function (event) {
@@ -73,13 +77,15 @@ $(function() {
         }
     });
 
-    $('.x-checkbox[type=checkbox]').change(function(){
-        if($('.x-checkbox[type=checkbox]:checked').length >= 1){
+
+    $('.x-checkbox[type=checkbox]').change(function () {
+        if ($('.x-checkbox[type=checkbox]:checked').length >= 1) {
             $('.x-checkbox[type=checkbox]:not(:checked)').attr('disabled', "disabled");
-        } else{
+        } else {
             $('.x-checkbox[type=checkbox]:disabled').removeAttr('disabled');
         }
     });
+
 //    работа с рисунком
     let red_dot = new Image(), green_dot = new Image();
     red_dot.src = './img/red_dot.svg';
@@ -103,14 +109,17 @@ $(function() {
         let r = $('td.result_r');
         let verdict = $('td.hit');
 
+
         for (let index = 0; index < verdict.length; index++) {
-            let size = 300 / 2 *0.95 / r[index].innerHTML;
+            let size = 300 / 2 * 0.95 / r[index].innerHTML;
+
             switch (verdict[index].innerHTML) {
                 case "true": {
                     context.drawImage(green_dot, x[index].innerHTML * size + 300 / 2
-                        - green_dot.width/2 , (-1 * y[index].innerHTML * size + 300 / 2
-                        - green_dot.height/2));
+                        - green_dot.width / 2, (-1 * y[index].innerHTML * size + 300 / 2
+                        - green_dot.height / 2));
                     break;
+
                 }
                 case "false": {
                     context.drawImage(red_dot, x[index].innerHTML * size + 300 / 2 - red_dot.width / 2,
@@ -177,5 +186,4 @@ $(function() {
         }
 
     })
-
 });
