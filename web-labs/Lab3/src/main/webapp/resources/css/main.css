@@ -1,0 +1,171 @@
+body {
+    background-color: #ece6CD;
+    font-family: sans-serif;
+    font-size: medium;
+}
+#header {
+    border: 2px solid #ee6a59;
+    background-color: #3a3f58;
+    margin: 5% auto;
+}
+
+#table {
+    width: 70%;
+    height: 60%;
+    margin: auto;
+    text-align: center;
+    min-width: 1000px;
+    min-height: 800px;
+}
+
+#last_requests {
+    text-align: center;
+    font-size: 23px
+}
+
+.errorMessage {
+    color: red;
+    margin-bottom: 5%;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
+.table th {
+    font-weight: bold;
+    padding: 5px;
+    border: 1px solid;
+    background: white;
+}
+
+.table td {
+    border: 1px solid;
+    padding: 5px;
+    background: white;
+}
+
+h1,h2 {
+    color: white;
+    font-size: 25px;
+    text-align: center;
+}
+
+input[type=text]:focus {
+    border: 3px solid #555;
+}
+
+td[colspan="3"] {
+    font-family: sans-serif;
+    color: black;
+    text-align: center;
+}
+
+.input_x{
+    margin-bottom: 5%;
+    width: 30%;
+    padding: 1px;
+}
+.input_y {
+    margin-bottom: 5%;
+    width: 30%;
+    height: 5%;
+}
+.input_R {
+    margin-bottom: 5%;
+    width: 30%;
+    height: 10%;
+}
+
+.block {
+    position :relative;
+    margin: 0;
+    padding: 0;
+    min-width: 602px;
+    min-height: 602px;
+}
+.col {
+    text-align: center;
+}
+.block .point {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #000;
+}
+canvas {
+    position: absolute;
+}
+.pagination {
+    --bs-pagination-padding-x: 0.75rem;
+    --bs-pagination-padding-y: 0.375rem;
+    --bs-pagination-font-size: 1rem;
+    --bs-pagination-color: var(--bs-link-color);
+    --bs-pagination-bg: #fff;
+    --bs-pagination-border-width: 1px;
+    --bs-pagination-border-color: #dee2e6;
+    --bs-pagination-border-radius: 0.375rem;
+    --bs-pagination-hover-color: var(--bs-link-hover-color);
+    --bs-pagination-hover-bg: #e9ecef;
+    --bs-pagination-hover-border-color: #dee2e6;
+    --bs-pagination-focus-color: var(--bs-link-hover-color);
+    --bs-pagination-focus-bg: #e9ecef;
+    --bs-pagination-focus-box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    --bs-pagination-active-color: #fff;
+    --bs-pagination-active-bg: #0d6efd;
+    --bs-pagination-active-border-color: #0d6efd;
+    --bs-pagination-disabled-color: #6c757d;
+    --bs-pagination-disabled-bg: #fff;
+    --bs-pagination-disabled-border-color: #dee2e6;
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+}
+.page-link {
+    position: relative;
+    display: block;
+    padding: var(--bs-pagination-padding-y) var(--bs-pagination-padding-x);
+    font-size: var(--bs-pagination-font-size);
+    color: var(--bs-pagination-color);
+    text-decoration: none;
+    background-color: var(--bs-pagination-bg);
+    border: var(--bs-pagination-border-width) solid var(--bs-pagination-border-color);
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+@media (prefers-reduced-motion: reduce) {
+    .page-link {
+        transition: none;
+    }
+}
+.page-link:hover {
+    z-index: 2;
+    color: var(--bs-pagination-hover-color);
+    background-color: var(--bs-pagination-hover-bg);
+    border-color: var(--bs-pagination-hover-border-color);
+}
+.page-link:focus {
+    z-index: 3;
+    color: var(--bs-pagination-focus-color);
+    background-color: var(--bs-pagination-focus-bg);
+    outline: 0;
+    box-shadow: var(--bs-pagination-focus-box-shadow);
+}
+.page-link.active, .active > .page-link {
+    z-index: 3;
+    color: var(--bs-pagination-active-color);
+    background-color: var(--bs-pagination-active-bg);
+    border-color: var(--bs-pagination-active-border-color);
+}
+.page-link.disabled, .disabled > .page-link {
+    color: var(--bs-pagination-disabled-color);
+    pointer-events: none;
+    background-color: var(--bs-pagination-disabled-bg);
+    border-color: var(--bs-pagination-disabled-border-color);
+}
+
+.clear {
+    margin-left: 10px;
+}
